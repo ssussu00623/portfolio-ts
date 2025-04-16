@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Project2 from './Project2';
 
 
 const Projects2: React.FC = () => {
+
+    const [projectList, setProjectList] = useState([]);
+
+    useEffect(() => {
+        axios('data/project.json')
+            .then((res) => setProjectList(res.data))
+            .catch((error) => console.log(error));
+    }, [])
+    /*
     const projectList = [
             {
                 "img" : "images/projects/project1.webp",
@@ -53,20 +63,16 @@ const Projects2: React.FC = () => {
                 "description" : "Clone Coding with HTML, CSS",
             },
         ];
-        return (
-            <ul className="projects">
-                {projectList && projectList.map((project) => 
-                    <li className="project">
-                        <Project2
-                            img={project.img}
-                            alt={project.alt}
-                            title={project.title}
-                            description={project.description}
-                            />
-                    </li>            
-                )}
-            </ul>
-        );
+        */
+    return (
+        <ul className="projects">
+            {projectList && projectList.map((project) =>
+                <li className="project">
+                    <Project2 project={project} /> 
+                </li>
+            )}
+        </ul>
+    );
 }
 
 export default Projects2;

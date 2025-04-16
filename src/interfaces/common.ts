@@ -21,7 +21,41 @@ export interface Menu {
  */
 export interface Major {
     icon: string;
-    title: string; 
+    title: string;
     subjects: string;
 }
 
+/**
+ * 
+ * 
+ */
+
+export interface Job {
+    img: string;
+    alt: string;
+    name: string;
+    period: string;
+}
+
+/**
+ * 
+ */
+export interface Code {
+    title: string;
+    percent: number;
+}
+
+/**
+ * 
+ */
+export interface Project {
+    img: string;
+    alt: string;
+    title: string;
+    description: string;
+}
+ 
+export interface  Category {
+    name: string;
+    count: number;
+}

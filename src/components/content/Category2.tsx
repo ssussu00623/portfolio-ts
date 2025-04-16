@@ -1,13 +1,15 @@
 import React from 'react';
+import { Category } from '@interfaces/common';
 
-interface Category2Props {
-    name: string;
-    count: number;
+type Category2Props = {
+    category: Category;
     style: string;
     click: (name: string) => void;
 }
 
-const Category2: React.FC<Category2Props> = ({name, count, style, click}) => {
+const Category2: React.FC<Category2Props> = ({category, click, style}) => {
+    const {name, count} = category;
+
     return (
         <button className={style}
                 onClick={()=>{click(name)} }

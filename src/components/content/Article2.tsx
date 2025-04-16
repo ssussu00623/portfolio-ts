@@ -1,6 +1,22 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Article2: React.FC<{type: string}> = ({type}) => {
+
+    const [data, setData] = useState([]);
+    const [tools, setTools] = useState([]);
+    const [etc, setEtc] = useState([]);
+    useEffect(()=>{
+        axios('data/article.json')
+            .then((res)=>{
+                setData(res.data)
+                setTools(res.data.tools)
+                setEtc(res.data.etc)
+            }
+        )
+            .catch(error => console.log(error))
+    })
+    /*
     const data = {
         "tools": [
             "Visual Studio Code",
@@ -15,16 +31,17 @@ const Article2: React.FC<{type: string}> = ({type}) => {
             "SVN"
         ]
     }; 
+*/  
 
     return (
         <article className="skills__tools">
             <h3 className="skill__title">{type}</h3>
             <ul>
                 {type === 'Tools' ? 
-                    data.tools.map(item =>
+                    tools.map(item =>
                         <li>{item}</li>
                     )
-                    : data.etc.map(item => 
+                    : etc.map(item => 
                         <li>{item}</li>
                     )
                 }                

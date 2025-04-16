@@ -10,6 +10,7 @@ const Majors2: React.FC = () => {
             .then((res) => setMajorList(res.data) )
             .catch((error) => console.log(error));        
     }, []);
+
     // const majorList = [
     //         {
     //             "icon": "html",
@@ -27,6 +28,7 @@ const Majors2: React.FC = () => {
     //             "subjects": "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"            
     //         }
     //     ];
+    
         return (
             <ul className="majors">
                 {majorList && majorList.map((major)=>

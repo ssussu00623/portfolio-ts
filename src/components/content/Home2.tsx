@@ -1,8 +1,14 @@
 import React from 'react';
 import { Logo } from '@interfaces/common';
 
+/*
 interface HomeProps {
     logo: Logo;
+}
+*/
+
+type HomeProps = {
+    logo : Logo
 }
 
 const Home2: React.FC<HomeProps> = ({logo}) => {
